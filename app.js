@@ -10,15 +10,10 @@ var pike = {
   avgCookies: 6.3,
   render: function() {
     var ulEl = document.getElementById('firstandpike');
-    var randomNumDay = Math.random() * (this.maxCust - this.minCust) + this.minCust;
-    console.log('before round', randomNumDay);
-    randomNumDay = Math.round(randomNumDay);
-    console.log('after round', randomNumDay);
-
-    var randomHour = Math.random() * (this.randomNumDay / this.avgCookies);
-    console.log('before round', randomHour);
-    randomHour = Math.round(randomHour);
-    console.log('after round', randomHour);
+    var randomCustomer = Math.random() * (this.maxCust - this.minCust) + this.minCust;
+    console.log('before round', randomCustomer);
+    randomCustomer = Math.round(randomCustomer);
+    console.log('after round', randomCustomer);
 
 
     for(var i = 0; i < this.hours; i++) {
