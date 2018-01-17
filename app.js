@@ -52,3 +52,34 @@ var capitalHill = new CookieStore ('Capitol Hill', 20, 38, 2.3);
 console.log(capitalHill);
 var alki = new CookieStore ('Alki', 2, 16, 4.6);
 console.log(alki);
+
+function table () {
+  var tableEL = document.getElementById('HourlyCookieSales');
+  var hearderRow = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'Stores' ;
+  headerRow.appendChild(th);
+  for (var i=0; i < hours.length; i++) {
+    var th = document.createElement('th');
+    th.textContent = hours[i];
+    headerRow.appendChild(th);
+  }
+  var th = document.createElement('th');
+  th.textContent = 'Total';
+  headerRow.appendChild(th);
+  tableEl.appendChild(headerRow);
+
+};
+
+CookieStore.prototype.render = function () {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  
+  tdEl.textContent = this.name;
+  trEl.appendChild(tdEl);
+
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.cookiesPerHour;
+
+
+}
