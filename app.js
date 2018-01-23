@@ -11,25 +11,51 @@ function Store(name, minCust, maxCust, avgCookies) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookies = avgCookies;
+  this.cookiesSoldPerHour = [];
+  this.totalCookies = 0;
   allCookieStores.push(this);
 }
-allCookieStores = [];
 
-Store.prototype.render = function () {
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.name;
-  trEl.appendChild(tdEl);
-};
 
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
-  thEl.textContent = 'Store Name';
   trEl.appendChild(thEl);
-
+  for(var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = hours[i];
+    trEl.appendChild(tdEl);
+  }
   cookieSalesTable.appendChild(trEl);
 }
+
+Store.prototype.calculateCustomersPerHour = function() {
+  var randomCustomer = Math.random() * (this.maxCust - this.minCust + 1) + this.minCust;
+  console.log('before round', randomCustomer);
+  randomCustomer = Math.round(randomCustomer);
+  console.log('after round', randomCustomer);
+  return randomCustomer;
+  //calculates a random customer per hour
+};
+
+Store.prototype.calculateCookiesPerHour = function() {
+  var cookiesSoldPerHour = this.calculateCustomersPerHour() * this.avgCookies;
+  console.log('before round' , cookiesSoldPerHour);
+  cookiesSoldPerHour = Math.round(cookiesSoldPerHour);
+  console.log('after round', cookiesSoldPerHour);
+  return this.cookiesSoldPerHour;
+ 
+};
+
+
+Store.prototype.calculateTotalCookiesPerStore = function() {
+  this.calculateCookiesPerHour();
+  for(var i = 0; i < hours.length; i++) {
+    var totalCookies = this.cookiesSoldPerHour();
+    this.cookiesSoldPerHour.push(totalCookies);
+
+  }
+};
 
 var pike = new Store ('1st and Pike', 23, 65, 6.3);
 console.log(pike);
@@ -43,36 +69,15 @@ var alki = new Store ('Alki', 2, 16, 4.6);
 console.log(alki);
 
 
-Store.prototype.calculateCustomersPerHour = function() {
-  var randomCustomer = Math.random() * (this.maxCust - this.minCust + 1) + this.minCust;
-  console.log('before round'. randomCustomer);
-  randomCustomer = Math.round(randomCustomer);
-  console.log('after round', randomCustomer);
-  return Math.round(this.calculateCustomersPerHour);
-  
-  //calculates a random customer per hour
-};
-
-Store.prototype.calculateCookiesPerHour = function() {
-  var cookiesSoldPerHour = Math.random() * (this.maxcust - this.minCust + 1) + this.minCust;
-  console.log('beforeround' , cookiesSoldPerHour);
-  cookiesSoldPerHour = Math.round(cookiesSoldPerHour);
-  console.log('after round', cookiesSoldPerHour);
-  return Math.round(this.calculateCookiesPerHour);
-};
-Store.prototype.calculateTotalCookiesPerStore = function() {
-  for(var i = 0; i < hours.leangth; i++) {
-    var totalCookies = this.calculateCookiesPerHour();
-    this.calculateCookiesPerHour.push(totalCookies);
-
-  }
-};
 Store.prototype.render = function() {
+  //this.calculateCookiesPerHour();
   var trEl = document.createElement('tr');
 
   var tdEl = document.createElement('td');
   tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
+
+
 
   for(var i = 0; i < hours.leangth; i++) {
     tdEl = document.createElement('td');
@@ -97,7 +102,7 @@ function makeFooterRow() {
     for(var j in Store.all) {
       totalCookies += Store.allStores[j].cookiesSoldPerHour;
       thEl.createElement('th');
-      thEl.textContent = totalCookies;
+      thEl.textContent = totalCookies[i];
       trEl.appendChild(thEl);
 
     }
