@@ -44,16 +44,14 @@ Store.prototype.calculateCookiesPerHour = function() {
   cookiesSoldPerHour = Math.round(cookiesSoldPerHour);
   console.log('after round', cookiesSoldPerHour);
   return this.cookiesSoldPerHour;
- 
 };
-
 
 Store.prototype.calculateTotalCookiesPerStore = function() {
   this.calculateCookiesPerHour();
   for(var i = 0; i < hours.length; i++) {
     var totalCookies = this.cookiesSoldPerHour();
     this.cookiesSoldPerHour.push(totalCookies);
-
+    
   }
 };
 
@@ -78,8 +76,7 @@ Store.prototype.render = function() {
   trEl.appendChild(tdEl);
 
 
-
-  for(var i = 0; i < hours.leangth; i++) {
+  for(var i = 0; i < hours.length; i++) {
     tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesSoldPerHour[i];
     trEl.appendChild(tdEl);
@@ -98,7 +95,7 @@ function makeFooterRow() {
   trEl.appendChild(thEl);
 
   for(var i = 0; i < hours.length; i++) {
-    var totalCookies = 0;
+    var totalCookies = [];
     for(var j in Store.all) {
       totalCookies += Store.allStores[j].cookiesSoldPerHour;
       thEl.createElement('th');
