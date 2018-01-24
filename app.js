@@ -54,15 +54,16 @@ Store.prototype.calculateCookiesPerHour = function() {
 Store.prototype.calculateTotalCookiesPerStore = function() {
   var storeTotal = 0;
   for (var i = 0; i < hours.length; i++) {
-  
+
     var cookies = this.calculateCookiesPerHour();
     console.log(cookies);
     this.cookiesSoldPerHour.push(cookies);
-    console.log(this.cookiesSoldPerHour);
+    console.log(this.name + ' ' + this.cookiesSoldPerHour);
     storeTotal += cookies;
-    console.log(storeTotal);
     this.totalCookies.push(storeTotal);
   }
+
+  console.log(storeTotal);
   return this.totalCookies;
 };
 
@@ -84,8 +85,6 @@ Store.prototype.render = function() {
 
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
-  // var dailySales = this.totalCookies;
-  // console.log(dailySales);
   tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
 
@@ -102,6 +101,47 @@ Store.prototype.render = function() {
   cookieSalesTable.appendChild(trEl);
 };
 
+function makeFooterRow() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Total Sales Per Hour';
+  trEl.appendChild(tdEl);
+  
+  console.log(allCookieStores);
+
+  var totalCookies = [];
+
+
+  for(var i = 0; i < (hours.length); i++) {
+
+    var thisTotal = 0;
+    var totalTotals = 0;
+
+    for (var j = 0; j < allCookieStores.length; j++) {
+      console.log(allCookieStores[j].name + ' ' + allCookieStores[j].cookiesSoldPerHour[i]);
+      thisTotal += allCookieStores[j].cookiesSoldPerHour[i];
+      console.log(thisTotal);
+
+
+    }
+    totalCookies.push(thisTotal);
+    console.log(totalCookies);
+
+    var thEl = document.createElement('th');
+    thEl.textContent = thisTotal;
+    trEl.appendChild(thEl);
+    cookieSalesTable.appendChild(trEl);
+  }
+
+  for (var k = 0; k < totalCookies.length; k++) {
+    totalTotals += totalCookies[k];
+  }
+
+  var totalsEl = document.createElement('th');
+  totalsEl.textContent = totalTotals;
+  trEl.appendChild(totalsEl);
+  cookieSalesTable.appendChild(trEl);
+}
 
 makeHeaderRow();
 pike.render();
@@ -109,3 +149,4 @@ airport.render();
 seattleCenter.render();
 capitalHill.render();
 alki.render();
+makeFooterRow();
