@@ -8,7 +8,31 @@
   <body>
 <header>Salmon Cookies Hourly Cookie Sales By Store</header>
 
-  <table id="storeTable"></table>
+  <table id="storeTable">
+    <tr id="footerRow">
+  </table>
+
+  <form id="store-form">
+    <fieldset>
+      <legend>Add A New Cookie Store</legend>
+      
+      <label for="storeName">Store name</label>
+      <input name="storeName" type="text" />
+
+      <label for="minCust">Minimum Customers</label>
+      <input name="minCust" type="Text" />
+
+      <label for="maxCust">Maximum Customers</label>
+      <input name="maxCust" id="maxCust" type="Text" /> 
+
+      <label for="avgCookies">Average Cookies Per Hour</label>
+      <input name="avgCookies" type="Text" /> 
+
+
+
+      <button id="add-store">Add a Store</button>
+    </fieldset>
+  </form>
 
   <script src="app.js"></script>
   </body>

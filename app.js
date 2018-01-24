@@ -6,6 +6,8 @@ var allCookieStores = [];
 
 var cookieSalesTable = document.getElementById('storeTable');
 
+var storeForm = document.getElementById('store-form');
+
 function Store(name, minCust, maxCust, avgCookies) {
   this.name = name;
   this.minCust = minCust;
@@ -142,6 +144,32 @@ function makeFooterRow() {
   trEl.appendChild(totalsEl);
   cookieSalesTable.appendChild(trEl);
 }
+
+function addNewStore(event) {
+  event.preventDefault();
+  var newName = event.target.storeName.value;
+  console.log(newName);
+  var newMinCust = event.target.minCust.value;
+  console.log(newMinCust);
+  var newMaxCust = event.target.maxCust.value;
+  console.log(newMaxCust);
+  var newAvgCookies = event.target.avgCookies.value;
+  console.log(newAvgCookies);
+
+  var newStore  = new Store(newName, newMinCust, newMaxCust, newAvgCookies);
+
+  cookieSalesTable.innerHTML = '';
+  makeHeaderRow();
+  pike.render();
+  airport.render();
+  seattleCenter.render();
+  capitalHill.render();
+  alki.render();
+  newStore.render();
+  makeFooterRow();
+}
+
+storeForm.addEventListener('submit', addNewStore);
 
 makeHeaderRow();
 pike.render();
