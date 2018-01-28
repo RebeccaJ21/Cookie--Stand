@@ -42,7 +42,6 @@ Store.prototype.calculateCustomersPerHour = function() {
   randomCustomer = Math.round(randomCustomer);
   console.log('after round', randomCustomer);
   return randomCustomer;
-  //calculates a random customer per hour
 };
 
 Store.prototype.calculateCookiesPerHour = function() {
