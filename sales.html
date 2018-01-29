@@ -3,12 +3,41 @@
   <head>
       <meta charset="utf-8">
     <title>Salmon Cookie Sales</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
   </head>
 
   <body>
 <header>Salmon Cookies Hourly Cookie Sales By Store</header>
 
-  <table id="storeTable"></table>
+  <table id="storeTable">
+    <tr id="footerRow">
+  </table>
+
+  <form id="store-form">
+    <fieldset>
+      <legend>Add A New Cookie Store</legend>
+      
+      <label for="storeName">Store name</label>
+      <input name="storeName" type="text" />
+
+      <label for="minCust">Minimum Customers</label>
+      <input name="minCust" type="Text" />
+
+      <label for="maxCust">Maximum Customers</label>
+      <input name="maxCust" id="maxCust" type="Text" /> 
+
+      <label for="avgCookies">Average Cookies Per Hour</label>
+      <input name="avgCookies" type="Text" /> 
+
+
+      <button id="add-store">Add a Store</button>
+    </fieldset>
+  </form>
+
+  <p id="fish">
+      <a href=index.html> <img src="https://github.com/codefellows/seattle-201d31/blob/master/09-css-wireframe-part-1/lab/assets/fish.jpg?raw=true" alt"Fish"/> </a>
+    </p>
 
   <script src="app.js"></script>
   </body>

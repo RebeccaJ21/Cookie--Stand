@@ -1,0 +1,83 @@
+body {
+  background-image:url(https://webgradients.com/public/webgradients_png/053%20Soft%20Grass.png);
+max-width: 100%;
+font-family: 'Libre Baskerville', serif; 
+}
+nav {
+  background-image: url(https://github.com/codefellows/seattle-201d31/raw/master/06-dom-objects-domain-modeling/lab/assets/salmon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 150px;
+
+}
+h1 {
+  margin: 0px,0px,0px,0px;
+  color: rgb(132, 46, 0);
+  text-align: center;
+  font-size: 100px;
+  margin: 0px;
+
+}
+  
+ul {
+  font-size: 15px; 
+  border-style: solid;
+  border-color: darkgreen;
+  list-style-type: none;
+}
+
+ul ul {
+  border-style: none;
+  display: inline;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+#list1 {
+  text-align: center;
+}
+
+ #list2 {
+ 
+  list-style-type: none;
+  text-align: center;
+  padding-right: 150px;
+  margin-top: 0px;
+  border: none;
+  float: right; 
+}
+ #list3 {
+  text-align: center;
+} 
+
+li img {
+  height: 150px;
+  width: 150px;
+  
+}
+
+#locations {
+  font-size: 20px;
+}
+
+#contact {
+  font-size: 20px;
+}
+
+ 
+h4 {
+  font-size: 20px;
+}
+
+p {
+  text-align: center;
+  font-size: 30px;
+}
+
+p img {
+  width: 250px;
+  height: 150px;
+}
+
